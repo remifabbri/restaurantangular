@@ -3,7 +3,12 @@
   {{d.name}} est un {{d.race}}
 </div>
 
-<div>
-  <h1>clan:{{ clan.name }}</h1>
+<div *ngFor="let c of clan">
+  <h1>clan:{{ c.name }}</h1>
+  <div>
+    <h2>Members List</h2>
+    <div *ngFor="let ml of c.memberList">{{ ml.name}}</div>
+  </div>
+  
 
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { ClanService } from '../services/clan.service';
 import { Clan } from '../models/clan.interface'
 
@@ -9,10 +11,6 @@ import { Clan } from '../models/clan.interface'
   styleUrls: ['./carte.component.css']
 })
 export class CarteComponent implements OnInit {
-
-  dogs = [
-    { race: 'berger allemand', name: 'wolfy' },
-  ];
 
   clan: Clan[]; 
 

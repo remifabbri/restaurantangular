@@ -12,7 +12,7 @@ export interface Clan {
     location: {
         id: number,
         name: string,
-        isCountry: true,
+        isCountry: boolean,
         countryCode: string
     },
     description: string,
