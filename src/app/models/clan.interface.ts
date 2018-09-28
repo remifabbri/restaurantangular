@@ -36,4 +36,4 @@ export interface Clan {
             clanChestPoints: number
         }
     ]
-}
+}[]

@@ -1,6 +1,13 @@
 <div class="background">
-  <div class="backgroundclan" *ngFor="let c of clan">
-    <h1>{{ c.name }}</h1>
+  <div *ngFor="let c of clan">
+
+    <div class="backgroundclan">
+      <h1><div class="blasonclan"></div>{{ c.name }}</h1>
+      <div>
+        {{c.clanScore}}
+      </div>
+    </div>
+    
     <div>
       <h2>Members List</h2>
       <div *ngFor="let ml of c.memberList">{{ ml.name}}</div>

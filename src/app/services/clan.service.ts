@@ -795,7 +795,7 @@ export class ClanService {
   ]
 
   constructor() { }
-
+  
   getClan(): Clan[] {
     return this.clan;
   }

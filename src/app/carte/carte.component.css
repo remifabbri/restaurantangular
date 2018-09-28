@@ -11,15 +11,13 @@
 }
 
 .backgroundclan{
-   display: flex; 
-    background-image: url('/assets/images/fondclan.webp'); 
-    background-attachment: fixed; 
-    background-position: center; 
-    background-size: cover; 
-    background-repeat: no-repeat;
+    display: flex; 
+
     
-    padding: 50px; 
-    height: auto;  
+    padding: 15px; 
+    height: auto;
+    width: 90%; 
+     
 }
 
 
@@ -31,12 +29,11 @@ h1{
 
 
 .blasonclan{
-    background-image: url('/assets/images/blason.png'); 
-    background-attachment: fixed; 
+    background-image: url('/assets/images/blason.png');  
     background-position: center; 
     background-size: cover; 
     background-repeat: no-repeat;
-    
     width: 50px; 
-    height: 50px; 
+    height: 60px;
+    margin-right: 10px;  
 }
