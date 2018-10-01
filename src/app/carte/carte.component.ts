@@ -18,7 +18,7 @@ export class CarteComponent implements OnInit {
 
   ngOnInit() {
     
-    this.clan = this.cs.getdataclan()
+    this.cs.getdataclan()
         .subscribe(data => this.clan = data);
   }
 

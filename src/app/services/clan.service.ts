@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Clan } from '../models/clan.interface';
-import { Observable } from 'rxjs/Observable'; 
+import { Observable } from 'rxjs'; 
 import { RequestOptions, Request, RequestMethod } from '@angular/http';
 import { ajax } from 'rxjs/ajax';
 import { map } from 'rxjs/operators';
@@ -53,16 +53,13 @@ export class ClanService {
 
 
   private _url: string = `https://api.clashroyale.com/v1/clan/%23RYYRLV`; 
-  
+  private _options = { headers: new HttpHeaders({ 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjEyMDAzNTljLTdiOGQtNGYwYi1hZmQwLTllZTVmZTI2MTMwOSIsImlhdCI6MTUzNzczNTc1NCwic3ViIjoiZGV2ZWxvcGVyLzhkZGYwMjI1LTM2ZDgtZGY4MC0zOWRmLTQ5ZmYzMGFhOTRjNCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4OC4xNjkuOTUuNyJdLCJ0eXBlIjoiY2xpZW50In1dfQ.X2EBB1zAgcUdLCTqOGCJWPv0FVbw_6vHOyd0hEZkxeJB_hLsW77HF4utsbbbTJaJnWxq7U9NYLgF_gnRFgs5BA' }) };
+   
   //clan: Clan[] = dataclan; 
 
   constructor(private http:HttpClient) { }
   
   getdataclan(): Observable<Clan[]>{
-    let headers: Headers = new Headers();
-    headers.append(Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjEyMDAzNTljLTdiOGQtNGYwYi1hZmQwLTllZTVmZTI2MTMwOSIsImlhdCI6MTUzNzczNTc1NCwic3ViIjoiZGV2ZWxvcGVyLzhkZGYwMjI1LTM2ZDgtZGY4MC0zOWRmLTQ5ZmYzMGFhOTRjNCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4OC4xNjkuOTUuNyJdLCJ0eXBlIjoiY2xpZW50In1dfQ.X2EBB1zAgcUdLCTqOGCJWPv0FVbw_6vHOyd0hEZkxeJB_hLsW77HF4utsbbbTJaJnWxq7U9NYLgF_gnRFgs5BA);
-    let opts = new RequestOptions();
-    opts.headers = headers;
-    return this.http.get<Clan[]>(this._url, headers);
+    return this.http.get<Clan[]>(this._url, this._options).pipe(map(data => data['_body']));
   }
 }
