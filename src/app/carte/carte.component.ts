@@ -12,12 +12,14 @@ import { Clan } from '../models/clan.interface'
 })
 export class CarteComponent implements OnInit {
 
-  clan: Clan[]; 
+  public clan = []; 
 
   constructor(private cs: ClanService) { }
 
   ngOnInit() {
-    this.clan = this.cs.getClan();
+    
+    this.clan = this.cs.getdataclan()
+        .subscribe(data => this.clan = data);
   }
 
 }

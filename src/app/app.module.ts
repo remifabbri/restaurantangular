@@ -12,6 +12,7 @@ import { CarteComponent } from './carte/carte.component';
 import { ReserveComponent } from './reserve/reserve.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainDashComponent } from './main-dash/main-dash.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { QuickLunchService } from './services/quick-lunch.service';
 
@@ -48,6 +49,7 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatDividerModule,
+    HttpClientModule, 
     RouterModule.forRoot(routes)
   ],
   providers: [QuickLunchService],
