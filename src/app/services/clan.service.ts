@@ -56,7 +56,9 @@ export class ClanService {
   
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST, PUT',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
       'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjEyMDAzNTljLTdiOGQtNGYwYi1hZmQwLTllZTVmZTI2MTMwOSIsImlhdCI6MTUzNzczNTc1NCwic3ViIjoiZGV2ZWxvcGVyLzhkZGYwMjI1LTM2ZDgtZGY4MC0zOWRmLTQ5ZmYzMGFhOTRjNCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4OC4xNjkuOTUuNyJdLCJ0eXBlIjoiY2xpZW50In1dfQ.X2EBB1zAgcUdLCTqOGCJWPv0FVbw_6vHOyd0hEZkxeJB_hLsW77HF4utsbbbTJaJnWxq7U9NYLgF_gnRFgs5BA'
     })
   };
@@ -66,6 +68,6 @@ export class ClanService {
   constructor(private http:HttpClient) { }
   
   getdataclan(): Observable<Clan[]>{
-    return this.http.get<Clan[]>(this._url).pipe(map(data => data['_body']));
+    return this.http.get<Clan[]>(this._url, this.httpOptions).pipe(map(data => data['_body']));
   }
 }
