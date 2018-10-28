@@ -52,7 +52,7 @@ export class ClanService {
   //const authoriz = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjEyMDAzNTljLTdiOGQtNGYwYi1hZmQwLTllZTVmZTI2MTMwOSIsImlhdCI6MTUzNzczNTc1NCwic3ViIjoiZGV2ZWxvcGVyLzhkZGYwMjI1LTM2ZDgtZGY4MC0zOWRmLTQ5ZmYzMGFhOTRjNCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4OC4xNjkuOTUuNyJdLCJ0eXBlIjoiY2xpZW50In1dfQ.X2EBB1zAgcUdLCTqOGCJWPv0FVbw_6vHOyd0hEZkxeJB_hLsW77HF4utsbbbTJaJnWxq7U9NYLgF_gnRFgs5BA";
 
 
-  private _url: string = `https://api.clashroyale.com/v1/clan/%23RYYRLV`; 
+  //private _url: string = `https://api.clashroyale.com/v1/clan/%23RYYRLV`; 
   
   httpOptions = {
     headers: new HttpHeaders({
@@ -68,6 +68,6 @@ export class ClanService {
   constructor(private http:HttpClient) { }
   
   getdataclan(): Observable<Clan[]>{
-    return this.http.get<Clan[]>(this._url, this.httpOptions).pipe(map(data => data['_body']));
+    return this.http.get<Clan[]>('https://api.clashroyale.com/v1/clan/%23RYYRLV', this.httpOptions).pipe(map(data => data['_body']));
   }
 }

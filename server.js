@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express(); 
 const port = process.env.PORT || 4200
 
-var allowedOrigins = 'http://localhost:4200/carte';
+var allowedOrigins = 'http://localhost:4200';
 app.use(cors({
   origin: function(origin, callback){
     // allow requests with no origin 
